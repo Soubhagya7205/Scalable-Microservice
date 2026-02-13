@@ -1,0 +1,82 @@
+### Health Check - Verify microservice is running
+GET http://localhost:3000/health
+
+###
+
+### Get all products
+GET http://localhost:3000/api/products
+
+###
+
+### Get single product by ID
+GET http://localhost:3000/api/products/1
+
+###
+
+### Get product by ID (that doesn't exist)
+GET http://localhost:3000/api/products/999
+
+###
+
+### Create new product
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+  "name": "Tablet",
+  "price": 35000,
+  "stock": 15
+}
+
+###
+
+### Create another product
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+  "name": "Monitor",
+  "price": 15000,
+  "stock": 8
+}
+
+###
+
+### Update existing product (change price)
+PUT http://localhost:3000/api/products/1
+Content-Type: application/json
+
+{
+  "price": 55000,
+  "stock": 12
+}
+
+###
+
+### Delete a product
+DELETE http://localhost:3000/api/products/2
+
+###
+
+### Filter products by price range (5000 to 30000)
+GET http://localhost:3000/api/products/price/5000/30000
+
+###
+
+### Filter products by price range (15000 to 50000)
+GET http://localhost:3000/api/products/price/15000/50000
+
+###
+
+### Try to update non-existent product
+PUT http://localhost:3000/api/products/999
+Content-Type: application/json
+
+{
+  "price": 9999
+}
+
+###
+
+### Try to delete non-existent product
+DELETE http://localhost:3000/api/products/999
